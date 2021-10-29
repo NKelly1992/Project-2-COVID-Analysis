@@ -13,14 +13,17 @@
 
     <script src="https://d3js.org/d3.v5.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
+    <link rel="stylesheet" href="assets/css/d3Style.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
         crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--Our Javascript-->
 
     <title>Vaccination Dashboard</title>
     <style>
@@ -32,6 +35,39 @@
     </head>
     
     <body>
+    <!-- navigation bar -->
+    <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="76.39 132.243 15.35 22" width="20" height="20" fill="#777">
+                <defs>
+                  <path id="a"
+                    d="M88.31 136.63c.29-.28.43-.63.43-1.05 0-.41-.14-.76-.43-1.04-.08-.09-.78-.78-.86-.87-.29-.28-.64-.43-1.05-.43-.41 0-.76.15-1.05.43-.75.75-6.78 6.77-7.53 7.53-.29.28-.43.63-.43 1.04 0 .42.14.76.43 1.05.75.75 6.78 6.77 7.53 7.53.29.28.64.42 1.05.42.41 0 .76-.14 1.05-.42.08-.09.78-.78.86-.87.29-.29.43-.63.43-1.04 0-.41-.14-.76-.43-1.05-.37-.38-2.24-2.25-5.61-5.61 3.37-3.37 5.24-5.24 5.61-5.62z" />
+                </defs>
+                <use xlink:href="#a" />
+                <use xlink:href="#a" />
+              </svg>
+            </a>
+            <a class="navbar-brand" href="./">COVID-19: Vaccination and Economic Demographics</a>
+          </div>
+          <div class="navbar-collapse">
+            <ul class="navnavbar-nav nav main-nav">
+              <li><a href="http://127.0.0.1:5500/COVID-Project/index.html">Dashboard</a></li>
+              <li><a href="http://127.0.0.1:5500/COVID-Project/Team.html">Team</a></li>
+              <li><a href="https://github.com/keenlabs/dashboards/tree/gh-pages/layouts/hero-sidebar">Sources</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
     <!-- title -->
     <div class="col-md-12 jumbotron text-center" style="background-image:url(../img/map.png);background-color: rgba(48, 92, 236, 0.74); width: 3500px;"class="main-header">
@@ -105,7 +141,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js "></script>
+    <script type="text/javascript" src="assets/js/scatter-app.js"></script>
 
 </body>
-
-</html>
