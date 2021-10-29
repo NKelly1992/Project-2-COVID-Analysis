@@ -1,47 +1,110 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>D3Times</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/d3Style.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" 
+        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" 
+        crossorigin="" >
 
-</head>
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/map.css">
 
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-12">
-        <h1>D3Times</h1>
-      </div>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Vaccination Dashboard</title>
+    <style>
+        #expimg {
+            margin: 30px;
+        }
+    </style>
+    
+    </head>
+    
+    <body>
+
+    <!-- title -->
+    <div class="col-md-12 jumbotron text-center" style="background-image:url(../img/map.png);background-color: rgba(48, 92, 236, 0.74); width: 3500px;"class="main-header">
+        <h1 id="head" style="color: rgb(255, 255, 255);">COVID Vaccination Data Visualization</h1>
+        <hr>
+        <p style="color: rgb(245, 228, 159); font-size: 35px;">
+            Subheading goes here
+        </p>
     </div>
-    <div class="row">
-      <div class="col-xs-12  col-md-9">
-        <div id="scatter">
-          <!-- We append our chart here. -->
+    <!-- end of title -->
+
+    <!-- START OF BODY PART -->
+
+        <div class="container">
+            <div class="col-md-12">
+            <!-- Part 1 -->
+                <!-- <article class="post"> -->
+                <h3 style="text-align:center; margin-top: 20px; margin-bottom:20px;" class="main-header">Vaccination Rate by State</h3>
+                <br>
+                <p style="text-align:left; font-size: 18px;">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              
+                </p>
+                <br>
+
+                <!-- Map -->
+                <div class="row" style="height:60vh">
+                    <div id="mymapDiv"></div>
+                </div>
+
+            <!-- Part 2 -->
+                <!-- <article class="post"> -->
+                  <h3 style="text-align:center; margin-top: 20px; margin-bottom:20px;" class="main-header">Scatterplot</h3>
+                  <br>
+                  <p style="text-align:left; font-size: 18px;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <!-- Scatterplot -->
+                    <div id="scatter"></div>
+
+            <!-- Part 3 -->
+                <h3 style="text-align:center; margin-top: 20px; margin-bottom:20px;" class="main-header">Top 5 states/bottom 5 states (poverty rate/vaccination rate)</h3>
+                <p style="text-align:left; font-size: 18px;">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            <!-- Bar chart-->
+            <div id="bar-chart"></div>
+
+
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12  col-md-9">
-        <div class="article">
-          <h3>Correlations Discovered Between Health Risks and Age, Income</h3>
+
+    </section>
+    <!-- END OF BODY PART -->
+
+    <footer id="footer">
+        <div class="inner">
+            <div>
+                <div class="copyright text-center">
+                    &copy;
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <!-- Footer-->
-  <div id="footer">
-    <p>D3 Challenge - Kori Yan</p>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
-  <script type="text/javascript" src="assets/js/app.js"></script>
+    </footer>
+    
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js "></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js "></script>
+    <script language="javascript " type="text/javascript " src="../js/app.js "></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js "></script>
 
 </body>
 
