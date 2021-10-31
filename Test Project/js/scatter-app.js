@@ -1,6 +1,6 @@
 //Set up the box for the SVG components
 
-console.log(covidData)
+// console.log(covidData)
 
 var svgWidth = 1000;
 var svgHeight = 500;
@@ -156,7 +156,7 @@ function updateToolTip(circlesGroup, chosenXAxis, chosenYAxis) {
 
 (async function(){
     // Import the data
-    var covidData = await d3.json("/returnData");
+    var covidData = await d3.csv("data/econ_vaccine.csv");
 
     // Parse Data
 /* d3.json("/returnData").then(function(covidData, err) {
@@ -204,7 +204,7 @@ function updateToolTip(circlesGroup, chosenXAxis, chosenYAxis) {
     var circlesText = circlesGroup.append("text")
         .attr("dx", d => xLinearScale(d[chosenXAxis]))
         .attr("dy", d => yLinearScale(d[chosenYAxis]))
-        .text(d => d.State)
+        .text(d => d.state_abrev_y)
         .classed("stateText", true);
     
     // Set up the X axis labels
