@@ -13,11 +13,13 @@
 
     <script src="https://d3js.org/d3.v5.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src='https://cdn.plot.ly/plotly-2.4.2.min.js'></script>
     <!-- <link rel="stylesheet" href="/COVID-Project/Project-2-COVID-Analysis/static/css/d3Style.css"> -->
     <!-- <link rel="stylesheet" href="/COVID-Project/Project-2-COVID-Analysis/static/css/style.css"> -->
-    <link rel="stylesheet" href="C:/Users/pippi/Project-2-COVID-Analysis/static/css/d3Style.css" type = "text/css">
-    <link rel="stylesheet" href="C:/Users/pippi/Project-2-COVID-Analysis/static/css/style.css" type = "text/css">
-
+    <!-- <link rel="stylesheet" href="C:/Users/pippi/Project-2-COVID-Analysis/static/css/d3Style.css" type = "text/css"> -->
+    <!-- <link rel="stylesheet" href="C:/Users/pippi/Project-2-COVID-Analysis/static/css/style.css" type = "text/css"> -->
+    <script type = "text/css" src = "{{ url_for('static', filename = 'd3Style.css') }}" ></script>
+    <script type = "text/css" src = "{{ url_for('static', filename = 'style.css') }}" ></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
@@ -74,7 +76,7 @@
       </div>
 
     <!-- title -->
-    <div class="col-md-12 jumbotron text-center" style="background-image:url(../img/map.png);background-color: rgba(48, 92, 236, 0.74); width: 3500px;"class="main-header">
+    <div class="col-md-12 jumbotron text-center" style="background-color: rgba(48, 92, 236, 0.74); width: 3500px;"class="main-header">
         <h1 id="head" style="color: rgb(255, 255, 255);">COVID Vaccination Data Visualization</h1>
         <hr>
         <p style="color: rgb(245, 228, 159); font-size: 35px;">
@@ -85,42 +87,39 @@
 
     <!-- START OF BODY PART -->
 
-        <div class="container">
-            <div class="col-md-12">
-            <!-- Part 1 -->
-                <!-- <article class="post"> -->
-                <h3 style="text-align:center; margin-top: 20px; margin-bottom:20px;" class="main-header">Vaccination Rate by State</h3>
-                <br>
-                <p style="text-align:left; font-size: 18px;">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              
-                </p>
-                <br>
+      <div class="container">
+        <div class="col-md-12">
+      <!-- Part 1 -->
+          <!-- <article class="post"> -->
+          <h3 style="text-align:center; margin-top: 20px; margin-bottom:20px;" class="main-header">Top 5 states/bottom 5 states</h3>
+          <br>
+          <p style="text-align:left; font-size: 18px;"></p>
+          <br>
+          <!-- Bar chart-->
+          <!-- <div id="bar-chart"></div> -->
+          <div id="plot1"></div>
+          <div id="plot2"></div>
+          
 
-                <!-- Map -->
-                <div class="row" style="height:60vh">
-                    <div id="mymapDiv"></div>
-                </div>
+      <!-- Part 2 -->
+          <!-- <article class="post"> -->
+            <h3 style="text-align:center; margin-top: 20px; margin-bottom:20px;" class="main-header">Vaccination Rate by State</h3>
+            <br>
+            <p style="text-align:left; font-size: 18px;"></p>
+            <!-- Radar -->
+          <div class="row; center" style="height:60vh">
+            <div id="myDiv"></div>
+          </div>
 
-            <!-- Part 2 -->
-                <!-- <article class="post"> -->
-                  <h3 style="text-align:center; margin-top: 20px; margin-bottom:20px;" class="main-header">Scatterplot</h3>
-                  <br>
-                  <p style="text-align:left; font-size: 18px;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                <!-- Scatterplot -->
-                    <div id="scatter"></div>
+      <!-- Part 3 -->
+          <h3 style="text-align:center; margin-top: 20px; margin-bottom:20px;" class="main-header">Scatterplot</h3>
+          <p style="text-align:left; font-size: 18px;"></p>
+      <!-- Scatterplot -->
+          <div class="col-xs-12  col-md-9">
+              <div id="scatter"></div>
 
-            <!-- Part 3 -->
-                <h3 style="text-align:center; margin-top: 20px; margin-bottom:20px;" class="main-header">Top 5 states/bottom 5 states (poverty rate/vaccination rate)</h3>
-                <p style="text-align:left; font-size: 18px;">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            <!-- Bar chart-->
-            <div id="bar-chart"></div>
-
-
-        </div>
+          </div>
+    </div>
 
     </section>
     <!-- END OF BODY PART -->
@@ -149,7 +148,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <!-- <script language="javascript " type="text/javascript " src="assets/js/app.js "></script> -->
-    <script type="text/javascript" src="../static/js/scatter-app.js"></script>
+    <!-- <script type="text/javascript" src="../static/js/scatter-app.js"></script> -->
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'scatter-app.js') }}" ></script>
+    <script type = "text/javascript" src= "{{ url_for('static', filename = 'radar-plots.js') }}"></script>
+    <script type = "text/javascript" src= "{{ url_for('static', filename = 'bar-plots.js') }}"></script>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'data.js') }}"></script>
 
 </body>

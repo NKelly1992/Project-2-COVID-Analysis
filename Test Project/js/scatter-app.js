@@ -135,9 +135,9 @@ function updateToolTip(circlesGroup, chosenXAxis, chosenYAxis) {
         .offset([80, -60])
         .html(function(d) {
             if (chosenXAxis === "income") {
-                return (`${d.State}<br>${xLabel}: $${d[chosenXAxis]}<br>${yLabel}: ${d[chosenYAxis]} %`);
+                return (`${d.state}<br>${xLabel}: $${d[chosenXAxis]}<br>${yLabel}: ${d[chosenYAxis]} %`);
             } else { 
-                return (`${d.State}<br>${xLabel}: ${d[chosenXAxis]} % <br>${yLabel}: ${d[chosenYAxis]} %`);
+                return (`${d.state}<br>${xLabel}: ${d[chosenXAxis]} % <br>${yLabel}: ${d[chosenYAxis]} %`);
             }
         });
 
@@ -167,6 +167,7 @@ function updateToolTip(circlesGroup, chosenXAxis, chosenYAxis) {
         data.unemployment = +data.unemployment_rate;
         data.income = +data.median_household_income;
         data.vaccination = +data.percent_vaccinated;
+        data.double_vaccination = +data.additional_doses_vax_pct;
     }); 
 
      // Create X and Y linear scales
@@ -243,6 +244,14 @@ function updateToolTip(circlesGroup, chosenXAxis, chosenYAxis) {
         .attr("value", "vaccination")
         .classed("active", true)
         .text("Full Vaccination Rate (%)");
+
+    var doublevaxLabel = yLabelsGroup.append("text")
+        .attr("y", 0 - margin.left + 15)
+        .attr("x", 0 - (height / 2 ))
+        .attr("dy", "1em")
+        .attr("value", "double_vaccination")
+        .classed("inactive", true)
+        .text("Additional Shot Rate (%)");
     
     
     // Initial tooltips
@@ -337,33 +346,17 @@ function updateToolTip(circlesGroup, chosenXAxis, chosenYAxis) {
                     vaccinationLabel
                         .classed("active", true)
                         .classed("inactive", false);
-                    smokingLabel
+                    doublevaxLabel
                         .classed("active", false)
                         .classed("inactive", true);
-                    vaccinationLabel
-                        .classed("active", false)
-                        .classed("inactive", true);
-                } else if (chosenYAxis === "smokes"){
-                    healthcareLabel
-                        .classed("active", false)
-                        .classed("inactive", true);
-                    smokingLabel
+                } else if (chosenYAxis === "double_vaccination"){
+                    doublevaxLabel
                         .classed("active", true)
                         .classed("inactive", false);
                     vaccinationLabel
                         .classed("active", false)
                         .classed("inactive", true);
-                } else if (chosenYAxis === "vaccination"){
-                    healthcareLabel
-                        .classed("active", false)
-                        .classed("inactive", true);
-                    smokingLabel
-                        .classed("active", false)
-                        .classed("inactive", true);
-                    vaccinationLabel
-                        .classed("active", true)
-                        .classed("inactive", false);
-                }
+                } 
             }
         });
 })()

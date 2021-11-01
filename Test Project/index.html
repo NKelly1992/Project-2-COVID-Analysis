@@ -74,7 +74,7 @@
       </div>
 
     <!-- title -->
-    <div class="col-md-12 jumbotron text-center" style="background-image:url(../img/map.png);background-color: rgba(48, 92, 236, 0.74); width: 3500px;"class="main-header">
+    <div class="col-md-12 jumbotron text-center" style="background-color: rgba(48, 92, 236, 0.74); width: 3500px;"class="main-header">
         <h1 id="head" style="color: rgb(255, 255, 255);">COVID Vaccination Data Visualization</h1>
         <hr>
         <p style="color: rgb(245, 228, 159); font-size: 35px;">
@@ -105,7 +105,7 @@
                   <br>
                   <p style="text-align:left; font-size: 18px;"></p>
                   <!-- Radar -->
-                <div class="row; center" style="height:60vh">
+                <div class="row; center">
                   <div id="myDiv"></div>
                 </div>
 
@@ -115,8 +115,13 @@
             <!-- Scatterplot -->
                 <div class="col-xs-12  col-md-9">
                     <div id="scatter"></div>
-
                 </div>
+                <p class = "three" style="text-align:left; font-size: 18px;">
+                This scatter plot takes the poverty rate, unemployment rate, and median
+                household income of each of the 50 states, plus Washington DC, and compares
+                them against the full vaccionation rates of each state, as well as the 
+                percentage of each state's population that has taken additional shots.
+                </p>
         </div>
 
     </section>
