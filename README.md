@@ -21,6 +21,9 @@ CDC Vaccination Data: https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in
 
 US Census Data: https://covid19.census.gov/#anchor-3 
 
-Code Inspirations:
+Code and Visualization Inspirations:
 
 Keen IO: https://keen.github.io/
+
+Information is Beautiful: https://informationisbeautiful.net/visualizations/covid-19-coronavirus-infographic-datapack/
+
