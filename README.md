@@ -13,8 +13,10 @@ Nicholas Kelly
 Roudy Boursiquot
 
 Data Sources: 
+
 CDC Vaccination Data: https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-County/8xkx-amqh 
 US Census Data: https://covid19.census.gov/#anchor-3 
 
 Code Inspirations:
+
 Keen IO: https://keen.github.io/
