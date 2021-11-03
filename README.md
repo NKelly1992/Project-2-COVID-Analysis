@@ -29,10 +29,10 @@ Information is Beautiful: https://informationisbeautiful.net/visualizations/covi
 
 
 ### Top 5 states/bottom 5 states
-![data viz 1](Images/Top 5 states/bottom 5 states.PNG)
+![data viz 1](images/Top 5 states/bottom 5 states.PNG)
 
 ### Vaccination Rate by State 
-![data viz 2](Images/Vaccination Rate by State.PNG)
+![data viz 2](images/Vaccination Rate by State.PNG)
 
 ### Scatterplot 
-![data viz 3](Images/Scatterplot.PNG)
+![data viz 3](images/Scatterplot.PNG)
