@@ -29,10 +29,10 @@ Information is Beautiful: https://informationisbeautiful.net/visualizations/covi
 
 
 ### Top 5 states/bottom 5 states
-![data_viz_1](images/data_viz_1.png)
+![data_viz_1](https://github.com/NKelly1992/Project-2-COVID-Analysis/blob/main/Test%20Project/images/data_viz_1.png?raw=true)
 
 ### Vaccination Rate by State 
-![data_viz_2](images/data_viz_2.png)
+![data_viz_2](https://github.com/NKelly1992/Project-2-COVID-Analysis/blob/main/Test%20Project/images/data_viz_2.png?raw=true)
 
 ### Scatterplot 
-![data_viz_3](images/data_viz_3.png)
+![data_viz_3](https://github.com/NKelly1992/Project-2-COVID-Analysis/blob/main/Test%20Project/images/data_viz_3.png?raw=true)
