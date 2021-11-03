@@ -22,7 +22,7 @@ layout = {
   polar: {
     radialaxis: {
       visible: true,
-      range: [0, 60000000]
+      range: [0, 70000000]
     }
   }
 }

@@ -378,6 +378,20 @@ button:hover, a:hover {
 }
 
 /* Text box */
+p.one {
+  border-style: inset;
+  border-color:rgb(14, 79, 218);
+  border-width: 4px;
+  padding: 6px;
+}
+
+p.two {
+  border-style: inset;
+  border-color:rgb(14, 79, 218);
+  border-width: 4px;
+  padding: 6px;
+}
+
 p.three {
   border-style: inset;
   border-color:rgb(14, 79, 218);
